@@ -1,0 +1,4 @@
+.env
+.idea
+.vscode
+docker/postgre/db-data/
