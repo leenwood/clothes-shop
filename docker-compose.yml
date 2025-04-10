@@ -2,7 +2,7 @@ services:
   php:
     build:
       context: ./docker/php
-    container_name: symfony-php
+    container_name: ${PROJECT_NAME}-php
     volumes:
       - ./apps:/var/www/html
     networks:
@@ -12,7 +12,7 @@ services:
 
   nginx:
     image: nginx:latest
-    container_name: symfony-nginx
+    container_name: ${PROJECT_NAME}-nginx
     ports:
       - "8080:80"
     volumes:
@@ -25,7 +25,7 @@ services:
 
   db:
     image: postgres:15
-    container_name: symfony-postgres
+    container_name: ${PROJECT_NAME}-postgres
     environment:
       POSTGRES_DB: ${DATABASE_NAME}
       POSTGRES_USER: ${DATABASE_USER}
